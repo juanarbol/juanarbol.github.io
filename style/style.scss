@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab');
+
+body {
+  background-color: #000;
+  font-family: 'Zilla Slab', serif;
+  letter-spacing: 0.5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  color: white;
+  margin: {
+    bottom: 3em;
+    top: 3em;
+  }
+}
+
+// Base seprator
+$base-separator: 5em;
+
+.container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.whoami {
+  color:  #fff;
+  display: none;
+  line-break: strict;
+
+  margin: {
+    bottom: $base-separator;
+    top: $base-separator;
+  }
+}
+
+.logo-wrapper {
+  flex: 0 0 100%;
+  .logo {
+    display: block;
+    height: auto; 
+    max-width: 100%; 
+  }
+}
+
+.info {
+  display: flex;
+  flex-flow: column;
+  flex: flex-grow;
+  margin-top: 3em;
+  a {
+    color: #fff;
+    cursor: pointer;
+    flex: 0 0 100%;
+    margin-top: $base-separator;
+    text-align: center;
+
+    &:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    &:last-child {
+      margin-bottom: $base-separator;
+    }
+  }
+}
