@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "This is my personal website",
   "main": "server.js",
-  "dependencies": {
-    "css-loader": "^0.28.4"
-  },
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
