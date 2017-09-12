@@ -41,11 +41,11 @@ $base-separator: 5em;
 }
 
 .logo-wrapper {
-  flex: 0 0 100%;
+  flex: 1 1 auto; 
   .logo {
     display: block;
-    height: auto; 
-    max-width: 100%; 
+    height: auto;
+    max-width: 350px;
   }
 }
 
@@ -68,6 +68,20 @@ $base-separator: 5em;
 
     &:last-child {
       margin-bottom: $base-separator;
+    }
+  }
+}
+
+.copyright {
+  color: white;
+  position: relative;
+  margin-left: 0.5em;
+
+  a {
+    color: #7F7F7F;
+
+    &:hover {
+      color: #E5E5E5;
     }
   }
 }
