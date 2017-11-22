@@ -1,19 +1,19 @@
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 module.exports = {
   entry: './entry.js',
   output: {
     filename: 'bundle.js',
-    path: __dirname,
+    path: __dirname
   },
   module: {
     loaders: [
       {
-        test: /\.scss$/, 
+        test: /\.scss$/,
         loaders: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        test: /\.js$/,
+        test: /\.jsx?/,
         loader: 'babel-loader'
       }
     ]

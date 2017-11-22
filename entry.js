@@ -1,2 +1,3 @@
-const style = require('./style/style.scss');
-const main = require('./js/main.js');
+require('./components/MainComponent.jsx')
+require('./style/style.scss')
+require('./js/main.js')

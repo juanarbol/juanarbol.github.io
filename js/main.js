@@ -1,12 +1,12 @@
-const toggle = document.querySelector('#whoami-toggle');
-const paragraph = document.querySelector('.whoami');
+const toggle = document.querySelector('#whoami-toggle')
+const paragraph = document.querySelector('.whoami')
 
-let display = false;
+let display = false
 
-toggle.addEventListener('click', whoAmIText);
+toggle.addEventListener('click', whoAmIText)
 
-function whoAmIText() {
-  display = !display;
-  const show = display ? 'block' : 'none';
-  paragraph.style.display = show;
+function whoAmIText () {
+  display = !display
+  const show = display ? 'block' : 'none'
+  paragraph.style.display = show
 }
