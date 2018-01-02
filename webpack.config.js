@@ -30,7 +30,7 @@ module.exports = {
     new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
-      server: { baseDir: `${__dirname}/build` }
+      server: { baseDir: `${__dirname}` }
     }),
     new HtmlWebpackPlugin({
       template: './assets/index.html'
