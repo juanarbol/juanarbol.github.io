@@ -5,7 +5,7 @@ module.exports = {
   entry: './entry.js',
   output: {
     filename: 'bundle.js',
-    path: `${__dirname}/build`
+    path: __dirname
   },
   module: {
     loaders: [
@@ -18,7 +18,7 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test:  /\.(png|jpg|jpeg|pdf|ico)$/,
+        test: /\.(png|jpg|jpeg|pdf|ico)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]'
@@ -30,7 +30,7 @@ module.exports = {
     new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
-      server: { baseDir: `${__dirname}` }
+      server: { baseDir: __dirname }
     }),
     new HtmlWebpackPlugin({
       template: './assets/index.html'
