@@ -1,10 +1,11 @@
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './entry.js',
   output: {
     filename: 'bundle.js',
-    path: __dirname
+    path: `${__dirname}/build`
   },
   module: {
     loaders: [
@@ -15,6 +16,13 @@ module.exports = {
       {
         test: /\.jsx?/,
         loader: 'babel-loader'
+      },
+      {
+        test:  /\.(png|jpg|jpeg|pdf|ico)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]'
+        }
       }
     ]
   },
@@ -22,7 +30,10 @@ module.exports = {
     new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
-      server: { baseDir: [__dirname] }
+      server: { baseDir: `${__dirname}/build` }
+    }),
+    new HtmlWebpackPlugin({
+      template: './assets/index.html'
     })
   ]
 }
