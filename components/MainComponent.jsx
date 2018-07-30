@@ -14,9 +14,14 @@ export default class MainComponent extends Component {
   }
 }
 
-ReactDOM.render(
+const app = (
   <MainComponent>
     <LogoWrapper />
     <Info />
     <Footer />
-  </MainComponent>, document.querySelector('body'))
+  </MainComponent>
+)
+
+const DOMroot = document.querySelector('#react-root')
+
+ReactDOM.render(app, DOMroot)
