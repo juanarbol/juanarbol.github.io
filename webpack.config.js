@@ -5,7 +5,7 @@ module.exports = {
   entry: './entry.js',
   output: {
     filename: 'bundle.js',
-    path: __dirname
+    path: `${__dirname}/build`
   },
   module: {
     loaders: [
@@ -30,7 +30,7 @@ module.exports = {
     new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
-      server: { baseDir: __dirname }
+      server: { baseDir: `${__dirname}/build` }
     }),
     new HtmlWebpackPlugin({
       template: './assets/index.html'

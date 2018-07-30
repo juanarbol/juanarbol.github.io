@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Zilla+Slab');
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #000;
+  // background-color: lightcyan;
   font-family: 'Zilla Slab', serif;
   letter-spacing: 0.5em;
 }
@@ -18,8 +24,10 @@ h1 {
   }
 }
 
-// Base seprator
-$base-separator: 5em;
+.react-root {
+  width: 100%;
+  height: 100%;
+}
 
 .container {
   display: flex;
@@ -29,59 +37,8 @@ $base-separator: 5em;
   text-align: center;
 }
 
-.whoami {
-  color:  #fff;
-  display: none;
-  line-break: strict;
-
-  margin: {
-    bottom: $base-separator;
-    top: $base-separator;
-  }
-}
-
-.logo-wrapper {
-  flex: 1 1 auto; 
-  .logo {
-    display: block;
-    height: auto;
-    max-width: 350px;
-  }
-}
-
-.info {
-  display: flex;
-  flex-flow: column;
-  flex: flex-grow;
-  margin-top: 3em;
-  a {
-    color: #fff;
-    cursor: pointer;
-    flex: 1 1 auto;
-    margin-top: $base-separator;
-    text-align: center;
-
-    &:hover {
-      background-color: #fff;
-      color: #000;
-    }
-
-    &:last-child {
-      margin-bottom: $base-separator;
-    }
-  }
-}
-
-.copyright {
-  color: white;
-  position: relative;
-  margin-left: 0.5em;
-
-  a {
-    color: #7F7F7F;
-
-    &:hover {
-      color: #E5E5E5;
-    }
-  }
-}
+@import 'vars';
+@import 'MainComponent';
+@import 'info';
+@import 'logo-wrapper';
+@import 'footer';

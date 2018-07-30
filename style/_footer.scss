@@ -1,0 +1,13 @@
+.copyright {
+  color: white;
+  position: relative;
+  margin-left: 0.5em;
+
+  a {
+    color: #7F7F7F;
+
+    &:hover {
+      color: #E5E5E5;
+    }
+  }
+}

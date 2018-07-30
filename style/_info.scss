@@ -1,0 +1,33 @@
+.info {
+  display: grid;
+  grid-row-gap: $base-separator;
+
+  a {
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+
+    &:first-child {
+      margin-top: $base-separator;
+    }
+
+    &:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    &:last-child {
+      margin-bottom: $base-separator;
+    }
+  }
+}
+
+.whoami {
+  color:  #fff;
+  line-break: strict;
+
+  margin: {
+    bottom: $base-separator;
+    top: $base-separator;
+  }
+}
