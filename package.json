@@ -1,8 +1,7 @@
 {
   "name": "juanarbol-website",
   "version": "1.0.0",
-  "description": "This is my personal website",
-  "main": "server.js",
+  "description": "This is my personal website, with my CV and stuff...",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
