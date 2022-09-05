@@ -4,11 +4,144 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
   <title>Juan José Arboleda</title>
+  <style>
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial;
+      font-size: calc(10px + 0.5vw);
+      color: black;
+    }
+
+    body {
+      margin: 8px;
+      margin-bottom: 0px;
+    }
+
+    h1,
+    h2 {
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1.6em;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+    }
+
+    .content {
+      width: 100%;
+      position: relative;
+      box-sizing: border-box;
+      overflow: hidden;
+      display: flex;
+      flex-flow: column;
+    }
+
+    section {
+      width: 60rem;
+      position: relative;
+      box-sizing: border-box;
+      margin: 80px auto;
+      margin-bottom: 0;
+    }
+
+    .doodle {
+      display: flex;
+      flex: 1 1 100%;
+      justify-content: flex-end;
+    }
+
+    img {
+      cursor: pointer;
+      height: 200px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      body {
+        margin-bottom: unset;
+      }
+
+      section {
+        width: unset;
+      }
+
+      .doodle {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div id="react-root"></div>
+<div class="content">
+  <section>
+    <h1>¡Hola!</h1>
+    <h2>My name is Juan Arboleda</h2>
+    <p>
+      I am a software engineer living in Colombia. An OSS enthusiast.
+      <a href="https://github.com/nodejs/node#collaborators" target="_blank">Node.js collaborator</a>, and
+      <a href="https://github.com/nodejs/node#release-keys" target="_blank">Node.js releaser</a>.
+    </p>
+    <p>
+      I’m currently working at <a href="https://nodesource.com/" target="_blank">NodeSource</a> doing some
+      front-end with React, back-end with Node.js, and Node.js
+      <a href="https://nodesource.com/products/nsolid" target="_blank">(N|Solid) runtime</a> engineering with JavaScript, C,
+      and C++.
+    </p>
+    <p>
+      I make some sporadic contributions to different OSS projects. You can
+      visit my <a href="https://github.com/juanarbol" target="_blank">GitHub profile</a>,
+      <a href="https://www.linkedin.com/in/juanarbol" target="_blank">LinkedIn</a>, and
+      <a href="https://twitter.com/soyjuanarbol" target="_blank">Twitter</a> or
+      <a href="CV.pdf" target="_blank">download my CV</a>.
+    </p>
+    <p>
+      Away from programming, I enjoy playing the piano, doodling, reading, and
+      using my hands with tech-unrelated stuff.
+    </p>
+  </section>
+  <section class="doodle">
+    <img src="doodle.png" alt="Juan in a Doodle" />
+  </section>
+</div>
+<script>
+const colors = ['#FCD708', '#8BF5AB', '#E06218', '#2E29C7'];
+const links = document.querySelectorAll('a');
+const doodle = document.querySelector('img')
+function painting () {
+  links.forEach((link) => {
+    // Grab only the first two colors
+    const randomColor = colors[Math.floor(Math.random() * 2)];
+    link.style.background = `linear-gradient(to bottom, transparent 60%, ${randomColor} 60% 70%)`;
+    link.addEventListener('mouseover', () => {
+      link.style.background = `linear-gradient(to bottom, transparent 0%, ${randomColor} 0% 100%)`;
+      blinkDoodle();
+    });
+    link.addEventListener('mouseout', () => {
+      link.style.background = `linear-gradient(to bottom, transparent 60%, ${randomColor} 60% 70%)`;
+    });
+  });
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  doodle.style.background = randomColor;
+  doodle.addEventListener('click', painting);
+}
+
+doodle.addEventListener('mouseover', blinkDoodle);
+doodle.addEventListener('mouseout', blinkDoodle);
+doodle.addEventListener('click', blinkDoodle);
+let blinkTimeout = null;
+function blinkDoodle () {
+  clearTimeout(blinkTimeout);
+  doodle.src = 'doodle-no-eyes.png';
+  setTimeout(() => doodle.src = 'doodle.png', 100);
+}
+painting();
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107131564-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -17,5 +150,4 @@
 
   gtag('config', 'UA-107131564-1');
 </script>
-<script type="text/javascript" src="bundle.js"></script></body>
 </html>
