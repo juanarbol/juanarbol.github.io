@@ -144,6 +144,26 @@ function blinkDoodle () {
 }
 painting();
 </script>
+<script>
+// This will handle route changes and possible redirections
+function redirectToBlogIfNeeded () {
+  const pathname = window.location.pathname;
+  if (pathname === '/blog') 
+    window.location.href = 'https://blog.juanarbol.co';
+}
+
+window.onhashchange = function () {
+  redirectToBlogIfNeeded();
+}
+
+window.onpopstate = function () {
+  redirectToBlogIfNeeded();
+}
+
+addEventListener('pageshow', () => {
+  redirectToBlogIfNeeded();
+})
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107131564-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
