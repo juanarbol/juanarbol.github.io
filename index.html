@@ -24,6 +24,11 @@
       font-size: 2em;
     }
 
+    span {
+      font-style: italic;
+      font-weight: lighter;
+    }
+
     p {
       font-size: 1.6em;
     }
@@ -62,6 +67,12 @@
       height: 200px;
     }
 
+    .hero {
+      display: flex;
+      align-items: baseline;
+      column-gap: 0.5em;
+    }
+
     @media only screen and (max-width: 600px) {
       body {
         margin-bottom: unset;
@@ -80,8 +91,11 @@
 <body>
 <div class="content">
   <section>
-    <h1>¡Hola!</h1>
-    <h2>My name is Juan Arboleda</h2>
+    <h1>Hola!</h1>
+    <div class="hero">
+      <h2>My name is Juan Arboleda</h2>
+      <span>(who-an)</span>
+    </div>
     <p>
       I am a software engineer. An OSS enthusiast. </br>
       I'm a <a href="https://chromium-review.googlesource.com/q/owner:soyjuanarbol@gmail.com" target="_blank">
@@ -102,10 +116,6 @@
       I’m currently working with React, Node.js as back-end and Node.js core engineering with JavaScript, C,
       and C++.
     </p>
-    <p>
-      Away from programming, I enjoy playing the piano, doodling, reading, and
-      using my hands with tech-unrelated stuff (like eating).
-    </p>
   </section>
   <section class="doodle">
     <img src="doodle.png" alt="Juan in a Doodle" />
@@ -119,13 +129,13 @@ function painting () {
   links.forEach((link) => {
     // Grab only the first two colors
     const randomColor = colors[Math.floor(Math.random() * 2)];
-    link.style.background = `linear-gradient(to bottom, transparent 60%, ${randomColor} 60% 70%)`;
+    link.style.background = `linear-gradient(to bottom, transparent 95%, ${randomColor} 60% 70%)`;
     link.addEventListener('mouseover', () => {
       link.style.background = `linear-gradient(to bottom, transparent 0%, ${randomColor} 0% 100%)`;
       blinkDoodle();
     });
     link.addEventListener('mouseout', () => {
-      link.style.background = `linear-gradient(to bottom, transparent 60%, ${randomColor} 60% 70%)`;
+      link.style.background = `linear-gradient(to bottom, transparent 95%, ${randomColor} 60% 70%)`;
     });
   });
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
@@ -140,7 +150,7 @@ let blinkTimeout = null;
 function blinkDoodle () {
   clearTimeout(blinkTimeout);
   doodle.src = 'doodle-no-eyes.png';
-  setTimeout(() => doodle.src = 'doodle.png', 100);
+  blinkTimeout = setTimeout(() => doodle.src = 'doodle.png', 100);
 }
 painting();
 </script>
