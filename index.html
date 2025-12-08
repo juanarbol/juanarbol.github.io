@@ -59,11 +59,10 @@
     .doodle {
       display: flex;
       flex: 1 1 100%;
-      justify-content: flex-end;
+      justify-content: center;
     }
 
     img {
-      cursor: pointer;
       height: 200px;
     }
 
@@ -81,10 +80,6 @@
       section {
         width: unset;
       }
-
-      .doodle {
-        display: none;
-      }
     }
   </style>
 </head>
@@ -101,8 +96,9 @@
       I'm a <a href="https://chromium-review.googlesource.com/q/owner:soyjuanarbol@gmail.com" target="_blank">
         V8 JavaScript engine contributor
       </a>,
-      <a href="https://github.com/nodejs/node#collaborators" target="_blank">Node.js collaborator</a>, and
-      <a href="https://github.com/nodejs/node#release-keys" target="_blank">Node.js releaser</a>.
+      <a href="https://github.com/nodejs/node#collaborators" target="_blank">Node.js collaborator</a>,
+      <a href="https://github.com/nodejs/node#release-keys" target="_blank">Node.js releaser</a>, and
+      <a href="https://github.com/libuv/libuv" target="_blank">Libuv maintainer</a>.
     </p>
     <p>
       I make more contributions to different OSS projects like Google's V8 JavaScript engine, Libuv and the Linux kernel. You can
@@ -124,7 +120,6 @@
 <script>
 const colors = ['#FCD708', '#8BF5AB', '#E06218', '#2E29C7'];
 const links = document.querySelectorAll('a');
-const doodle = document.querySelector('img')
 function painting () {
   links.forEach((link) => {
     // Grab only the first two colors
@@ -132,26 +127,13 @@ function painting () {
     link.style.background = `linear-gradient(to bottom, transparent 95%, ${randomColor} 60% 70%)`;
     link.addEventListener('mouseover', () => {
       link.style.background = `linear-gradient(to bottom, transparent 0%, ${randomColor} 0% 100%)`;
-      blinkDoodle();
     });
     link.addEventListener('mouseout', () => {
       link.style.background = `linear-gradient(to bottom, transparent 95%, ${randomColor} 60% 70%)`;
     });
   });
-  const randomColor = colors[Math.floor(Math.random() * colors.length)];
-  doodle.style.background = randomColor;
-  doodle.addEventListener('click', painting);
 }
 
-doodle.addEventListener('mouseover', blinkDoodle);
-doodle.addEventListener('mouseout', blinkDoodle);
-doodle.addEventListener('click', blinkDoodle);
-let blinkTimeout = null;
-function blinkDoodle () {
-  clearTimeout(blinkTimeout);
-  doodle.src = 'doodle-no-eyes.png';
-  blinkTimeout = setTimeout(() => doodle.src = 'doodle.png', 100);
-}
 painting();
 </script>
 <script>
